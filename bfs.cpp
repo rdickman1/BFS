@@ -11,6 +11,7 @@ int main(){
 	string line;
 	stringstream s;
 	vector<vector<int>> graph;
+	vector<int> vec;
 	int vertex, count;
 
 	data.open("data2.txt");
@@ -20,18 +21,18 @@ int main(){
 		return 2;
 	}
 
-	int i = 0;
+
 	while(!data.eof()){
 		getline(data, line);
 			s.str(line);
 			while(s >> line){
-
-			s >> vertex;	
-			graph[i].push_back(vertex);
+				vertex = stoi(line);
+				vec.push_back(vertex);
 			}
-			i++;
-		
-		
+			graph.push_back(vec);
+			vec.clear();
+			s.clear();
+					
 	}
 
 	for(int i = 0; i < graph.size(); i++){
