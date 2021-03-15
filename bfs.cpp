@@ -20,9 +20,8 @@ int main(){
 		return 2;
 	}
 
-	count = system("cat data2.txt | wc -l");
-	
-	for (int i = 0; i < count; i++){
+	int i = 0;
+	while(!data.eof()){
 		getline(data, line);
 			s.str(line);
 			while(s >> line){
@@ -30,7 +29,7 @@ int main(){
 			s >> vertex;	
 			graph[i].push_back(vertex);
 			}
-			
+			i++;
 		
 		
 	}
