@@ -11,7 +11,7 @@ int main(){
 	string line;
 	stringstream s;
 	vector<vector<int>> graph;
-	int vertex;
+	int vertex, count;
 
 	data.open("data2.txt");
 	
@@ -19,19 +19,23 @@ int main(){
 		cout << "File failed to open\n";
 		return 2;
 	}
+
+	count = system("cat data2.txt | wc -l");
 	
-	int i = 0;
-	while(getline(data, line)){
-		s.str(line);
-		
-		while(s >> line){
+	for (int i = 0; i < count; i++){
+		getline(data, line);
+			s.str(line);
+			while(s >> line){
+
 			s >> vertex;	
 			graph[i].push_back(vertex);
-		}
-		i++;
+			}
+			
+		
+		
 	}
 
-	for(i = 0; i < graph.size(); i++){
+	for(int i = 0; i < graph.size(); i++){
 		for (int j = 0; j < graph[i].size(); j++){
 			cout << graph[i][j] << " ";
 		}
